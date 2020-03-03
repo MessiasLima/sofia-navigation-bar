@@ -1,0 +1,3 @@
+rootProject.name='SofiaNavigationBar'
+include ':app'
+include ':sofia'
