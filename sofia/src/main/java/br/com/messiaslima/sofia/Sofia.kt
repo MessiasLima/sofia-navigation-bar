@@ -1,16 +1,13 @@
 package br.com.messiaslima.sofia
 
 import android.content.Context
-import android.provider.MediaStore
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.view.ViewTreeObserver
-import android.widget.*
+import android.widget.CompoundButton
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginLeft
-import androidx.core.view.marginRight
-import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePaddingRelative
 import br.com.messiaslima.sofia.model.MenuParser
 import br.com.messiaslima.sofia.model.SofiaMenuItem
@@ -25,17 +22,17 @@ class Sofia @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     companion object {
-        const val DEFAULT_ITEM_HORIZONTAL_PADDING = 16f
+        const val DEFAULT_ITEM_HORIZONTAL_PADDING = 20f
+        const val DEFAULT_ITEM_HORIZONTAL_MARGIN = 10f
         const val DEFAULT_ITEM_VERTICAL_PADDING = 0f
     }
 
-    private var itemHorizontalMargin: Float = DEFAULT_ITEM_HORIZONTAL_PADDING
+    private var itemHorizontalMargin: Float = DEFAULT_ITEM_HORIZONTAL_MARGIN
     private var itemHorizontalPadding: Float = DEFAULT_ITEM_HORIZONTAL_PADDING
     private var itemVerticalPadding: Float = DEFAULT_ITEM_VERTICAL_PADDING
     private var menu: Int = 0
     private var selectedTextColor: Int = 0
     private var unselectedTextColor: Int = 0
-
 
     init {
         orientation = HORIZONTAL
@@ -58,7 +55,7 @@ class Sofia @JvmOverloads constructor(
 
         itemHorizontalMargin = attributes.getDimension(
             R.styleable.Sofia_itemHorizontalMargin,
-            DEFAULT_ITEM_HORIZONTAL_PADDING
+            DEFAULT_ITEM_HORIZONTAL_MARGIN
         )
 
         itemVerticalPadding = attributes.getDimension(
@@ -104,6 +101,7 @@ class Sofia @JvmOverloads constructor(
             top = itemVerticalPadding.toPx(),
             bottom = itemVerticalPadding.toPx()
         )
+        radioButton.textSize = 17f
         radioButton.setOnCheckedChangeListener(this::onChangeButtonChecked)
         radioButton.isChecked = index == 0
         buttonsWrapper.addView(radioButton)
@@ -111,12 +109,16 @@ class Sofia @JvmOverloads constructor(
         radioButton.post {
             val newParams = RadioGroup.LayoutParams(radioButton.width, radioButton.height)
             newParams.marginEnd = itemHorizontalMargin.toPx()
-            newParams.marginStart = itemHorizontalMargin.toPx()
+            newParams.marginStart = if (index == 0) {
+                itemHorizontalMargin.toPx() * 2
+            } else {
+                itemHorizontalMargin.toPx()
+            }
             radioButton.layoutParams = newParams
         }
     }
 
-    private fun onChangeButtonChecked(buttonView: CompoundButton, isChecked: Boolean){
+    private fun onChangeButtonChecked(buttonView: CompoundButton, isChecked: Boolean) {
         changeButtonColor(isChecked, buttonView)
     }
 
