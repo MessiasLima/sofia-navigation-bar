@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SofiaNavigationBar</string>
+    <string name="all">All</string>
+    <string name="charts">Charts</string>
+    <string name="learn">Learn</string>
+    <string name="articles">Articles</string>
+    <string name="about">About</string>
 </resources>

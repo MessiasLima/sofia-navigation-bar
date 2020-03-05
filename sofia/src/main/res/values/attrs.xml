@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Sofia">
+        <attr name="menu" format="reference"/>
+        <attr name="itemHorizontalPadding" format="dimension"/>
+        <attr name="itemVerticalPadding" format="dimension"/>
+        <attr name="android:paddingStart" format="dimension"/>
+        <attr name="android:paddingEnd" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="SofiaMenuItem">
+        <attr name="android:id" format="integer"/>
+        <attr name="android:title" format="string"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_all"
+        android:title="@string/all"/>
+
+    <item
+        android:id="@+id/menu_item_charts"
+        android:title="@string/charts"/>
+
+    <item
+        android:id="@+id/menu_item_learn"
+        android:title="@string/learn"/>
+
+    <item
+        android:id="@+id/menu_item_articles"
+        android:title="@string/articles"/>
+
+    <item
+        android:id="@+id/menu_item_about"
+        android:title="@string/about"/>
+</menu>
