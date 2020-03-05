@@ -4,8 +4,9 @@
         <attr name="menu" format="reference"/>
         <attr name="itemHorizontalPadding" format="dimension"/>
         <attr name="itemVerticalPadding" format="dimension"/>
-        <attr name="android:paddingStart" format="dimension"/>
-        <attr name="android:paddingEnd" format="dimension"/>
+        <attr name="itemHorizontalMargin" format="dimension"/>
+        <attr name="unselectedTextColor" format="color"/>
+        <attr name="selectedTextColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="SofiaMenuItem">
