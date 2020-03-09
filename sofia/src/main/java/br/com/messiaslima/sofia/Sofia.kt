@@ -147,15 +147,16 @@ class Sofia @JvmOverloads constructor(
 
     fun setSelectedItem(index: Int) {
         val radioButton = (sofiaButtonsWrapper.getChildAt(index) as RadioButton)
-        scrollToItem(index, radioButton)
+        scrollToItem(radioButton)
         radioButton.isChecked = true
     }
 
-    private fun scrollToItem(index: Int, radioButton: RadioButton) {
-        val x = if (index == 0) {
-            0
+    private fun scrollToItem(radioButton: RadioButton) {
+        val midPoint = sofiaScrollView.getChildAt(0).width / 2
+        val x = if (radioButton.right > midPoint) {
+            radioButton.right + itemHorizontalMargin.toPx()
         } else {
-            radioButton.right
+            radioButton.left - itemHorizontalMargin.toPx()
         }
         sofiaScrollView.smoothScrollTo(x, 0)
     }
