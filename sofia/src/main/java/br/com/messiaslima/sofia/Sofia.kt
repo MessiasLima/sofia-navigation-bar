@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.sofia.view.*
 class Sofia @JvmOverloads constructor(
     context: Context,
     private val attrs: AttributeSet,
-    private val defStyle: Int = 0,
-    private val defStyleRes: Int = 0
+    defStyle: Int = 0,
+    defStyleRes: Int = 0
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
 
 
