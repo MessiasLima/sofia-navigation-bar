@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginTop
 import androidx.core.view.updatePaddingRelative
 import br.com.messiaslima.sofia.model.MenuParser
 import br.com.messiaslima.sofia.model.SofiaMenu
@@ -112,7 +111,7 @@ class Sofia @JvmOverloads constructor(
         radioButton.elevation = 10f
         radioButton.setOnCheckedChangeListener(this::onChangeButtonChecked)
         radioButton.isChecked = index == 0
-        buttonsWrapper.addView(radioButton)
+        sofiaButtonsWrapper.addView(radioButton)
 
         radioButton.post {
             val newParams = RadioGroup.LayoutParams(radioButton.width, radioButton.height)
@@ -146,4 +145,18 @@ class Sofia @JvmOverloads constructor(
         buttonView.setTextColor(color)
     }
 
+    fun setSelectedItem(index: Int) {
+        val radioButton = (sofiaButtonsWrapper.getChildAt(index) as RadioButton)
+        scrollToItem(index, radioButton)
+        radioButton.isChecked = true
+    }
+
+    private fun scrollToItem(index: Int, radioButton: RadioButton) {
+        val x = if (index == 0) {
+            0
+        } else {
+            radioButton.right
+        }
+        sofiaScrollView.smoothScrollTo(x, 0)
+    }
 }
