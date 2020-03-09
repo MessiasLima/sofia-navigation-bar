@@ -1,11 +1,27 @@
-# Sofia
+# Sofia Navigation Bar [![](https://jitpack.io/v/MessiasLima/sofia-navigation-bar.svg)](https://jitpack.io/#MessiasLima/sofia-navigation-bar)
 An elegant navigation bar
-
-## Demo
-![Demostration](./demo.gif)
 
 ## Implementation 
 1. Add dependency on build.gradle
+
+    **Step 1.** Add the JitPack repository to your build file
+
+    Add it in your root build.gradle at the end of repositories:
+    ```gradle
+    allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+    ```
+
+    **Step 2.** Add the dependency
+    ```gradle
+        dependencies {
+	        implementation 'com.github.MessiasLima:sofia-navigation-bar:<version>'
+	    }
+    ```
 
 1. Crate an menu xml file
     ```xml
@@ -52,6 +68,10 @@ An elegant navigation bar
             itemSelected.text = item.title
         }
     ```
+
+## Demo
+![Demostration](./demo.gif)
+
 ## License
 
 MIT License
